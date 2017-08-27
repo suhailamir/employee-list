@@ -1,0 +1,32 @@
+<div class="container">
+    <ng-template #modalContent let-close="close" let-dismiss="dismiss">
+        <div class="modal-header">
+            <h5 class="modal-title">Employee Info</h5>
+            <button type="button" class="close" (click)="dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div>
+                <h5>{{modalData.employee.bio}}</h5>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success" (click)="dismiss()">Ok</button>
+            <button type="button" class="btn btn-secondary" (click)="dismiss()">Cancel</button>
+        </div>
+    </ng-template>
+    <h3 class="text-center">Employee List</h3>
+    <div *ngFor="let employee of employees">
+        <a href="#" (click)="toggle(employee)">{{employee.title}}
+        </a>
+        <hr>
+        <div [ngClass]="{hide: !employee.opened}" class="details">
+            {{employee.bio}} ....
+            <a href="#" (click)="openModal(modalContent,employee)">Details</a>
+        </div>
+
+    </div>
+
+
+</div>
