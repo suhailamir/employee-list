@@ -60,7 +60,9 @@ export class AppComponent {
 
   }
   openModal(modalContent, employee) {
-    this.modalData['employee'] = employee;
+    this.modalData = {
+      employee
+    };
     this
       .modal
       .open(modalContent, {size: 'lg'})
